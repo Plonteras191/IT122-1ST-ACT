@@ -23,7 +23,7 @@ class studentController extends Controller
             'middle_name' => 'Dela Cruz',
             'gender' => 'Male',
             'dob' => '1995-01-01',
-            'phone_number' => '6789',
+            'age' => '18',
         ];
 
         $student::create($data);
