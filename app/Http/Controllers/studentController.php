@@ -18,12 +18,12 @@ class studentController extends Controller
         $student = new studentModel();
 
         $data = [
-            'first_name' => 'Roy',
-            'last_name' => 'Ramirez',
-            'middle_name' => 'Dela Cruz',
+            'first_name' => 'John',
+            'last_name' => 'Plonteras',
+            'middle_name' => 'Combista',
             'gender' => 'Male',
-            'dob' => '1995-01-01',
-            'age' => '18',
+            'dob' => '2004-06-19',
+            'age' => '21',
         ];
 
         $student::create($data);
