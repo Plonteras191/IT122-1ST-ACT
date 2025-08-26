@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('t_students', function (Blueprint $table) {
@@ -17,16 +15,14 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('middle_name');
             $table->string('gender');
-            $table->date('dob'); // Date of Birth
+            $table->date('dob'); 
             $table->integer('age');
             $table->timestamps();
 
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
         Schema::dropIfExists('t_students');
