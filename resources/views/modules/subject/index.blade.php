@@ -12,6 +12,22 @@
                 <a href="{{ route('subjects.create') }}" class="text-white p-2 rounded-lg border"
                     style="background-color: rgb(17, 106, 136)">Create Subject
                 </a>
+
+                <hr class="mt-6 mb-6">
+
+                <table class="table tablebordered p-2">
+                    <thead>
+                        <th>#</th>
+                        <th>Code</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Lab Unit</th>
+                        <th>Lec Unit</th>
+                        <th>Total Unit</th>
+                    </thead>
+                </table>
+
+
                 </div>
             </div>
         </div>
