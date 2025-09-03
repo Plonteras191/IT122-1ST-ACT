@@ -7,26 +7,39 @@ use App\Models\studentModel;
 
 class studentController extends Controller
 {
-     public function index(){
-        $students = new studentModel();
-        $students = $students->all();
-
-        return response()->json($students, 200, [], JSON_PRETTY_PRINT);
+     public function index() {
+        $students = studentModel::latest()->get(); // Get all students
+        return view('modules.students.index', compact('students'));
     }
-    public function store(){
 
-        $student = new studentModel();
+    public function create() {
+        return view('modules.students.create');
+    }
 
-        $data = [
-            'first_name' => 'John',
-            'last_name' => 'Plonteras',
-            'middle_name' => 'Combista',
-            'gender' => 'Male',
-            'dob' => '2004-06-19',
-            'age' => '21',
-        ];
+    public function show() {
+        return view('modules.students.show');
+    }
 
-        $student::create($data);
-        return response()->json(['message' => 'Successfully created!'], 200, [], JSON_PRETTY_PRINT);
+    public function store(Request $request, studentModel $studentModel) {
+        $validate = $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'middle_name' => 'required|string',
+            'gender' => 'required|string',
+            'dob' => 'required|date',
+            'age' => 'required|integer',
+        ]);
+
+        $studentModel->create([
+            'first_name' => $validate['first_name'],
+            'last_name' => $validate['last_name'],
+            'middle_name' => $validate['middle_name'],
+            'gender' => $validate['gender'],
+            'dob' => $validate['dob'],
+            'age' => $validate['age'],
+        ]);
+
+        return redirect()->route('students.create')->with('success', 'Student Created Successfully!');
+
     }
 }

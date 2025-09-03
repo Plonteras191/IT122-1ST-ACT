@@ -21,8 +21,8 @@ Route::middleware([
     Route::get('subjects/create', [SubjectController::class, 'create'])->name('subjects.create');
     Route::post('/subject/store', [SubjectController::class, 'store'])->name('subject.store');
 
-    Route::get('/students', [studentController::class, 'index'])->name('students');
-    Route::get('/student/create', [studentController::class, 'store'])->name('student.store');
+    Route::get('students', [studentController::class, 'index'])->name('students.index');
+    Route::get('students/create', [studentController::class, 'create'])->name('students.create');
+    Route::post('/students/store', [studentController::class, 'store'])->name('students.store');
 });
 
-Route::resource('students', studentController::class);
